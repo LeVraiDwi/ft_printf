@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_hexa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/07 08:20:55 by tcosse            #+#    #+#             */
-/*   Updated: 2020/08/31 17:09:26 by tcosse           ###   ########.fr       */
+/*   Created: 2020/08/31 17:03:24 by tcosse            #+#    #+#             */
+/*   Updated: 2020/08/31 17:08:05 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# include "libft/libft.h"
+#include "ft_printf.h"
 
-int		ft_new_int(int i, t_list **alst);
-int		ft_new_u_int(unsigned int i, t_list **alst);
-int		ft_new_str(char *str, t_list **alst);
-int		ft_new_char(char c, t_list **alst);
-int		ft_new_hexa(unsigned int n, t_list **alst, int upper);
-void	ft_display(t_list *alst);
-#endif
+int	ft_new_hexa(unsigned int nb, t_list **new, int upper)
+{
+	if (!(*new = ft_lstnew(ft_int_hexa(nb, upper))))
+		return (0);
+	return (1);
+}
