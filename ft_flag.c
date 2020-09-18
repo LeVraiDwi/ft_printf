@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:59:40 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/18 11:37:15 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/09/18 13:01:29 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,21 @@ int	ft_determine_specifier(char spe, t_list *alst)
 	else if (spe == '%')
 		alst->flag += 128;
 	else
-		return (0);
+		alst->flag = 0;
 	return (1);
+}
+
+int	ft_is_number(va_list lst_arg, t_list *alst, int i)
+{
+	if (((char *)alst->content)[i] == '*')
+	{
+		if ((i = ft_addstr(alst, i + 1, ft_itoa(va_arg(lst_arg, int)))) == -1)
+			return (0);
+	}
+	else
+		while (ft_isdigit(((char *)alst->content)[i]))
+			i++;
+	return (i);
 }
 
 int	ft_flag(va_list lst_arg, t_list *alst)
@@ -45,28 +58,14 @@ int	ft_flag(va_list lst_arg, t_list *alst)
 		else
 			alst->flag += 4;
 	}
-	if (((char *)alst->content)[i] == '*')
-	{
-		if ((i = ft_addstr(alst, i + 1, ft_itoa(va_arg(lst_arg, int)))) == -1)
-			return (0);
-	}
-	else
-		while (ft_isdigit(((char *)alst->content)[i]))
-			i++;
+	i = ft_is_number(lst_arg, alst, i);
 	if (((char *)alst->content)[i] == '.')
 	{
 		alst->flag += 1;
 		i++;
+		i = ft_is_number(lst_arg, alst, i);
 	}
-	if (((char *)alst->content)[i] == '*')
-	{
-		if ((i = ft_addstr(alst, i + 1, ft_itoa(va_arg(lst_arg, int)))) == -1)
-			return (0);
-	}
-	else
-		while (ft_isdigit(((char *)alst->content)[i]))
-			i++;
-	if (!ft_determine_specifier(((char *)alst->content)[i], alst))
-		alst->flag = 0;
+	if(!(ft_new(lst_arg, alst, ((char *)alst->content)[i])))
+		return (0);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:59:40 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/18 12:12:49 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/09/18 12:23:10 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,6 @@ void	ft_flag(t_list *alst)
 		while (ft_isdigit((char *)(alst->content)[i]))
 			i++;
 	i = ft_if_precision(alst, i);
-	if (!ft_determine_specifier((char *)alst->content[i]), *alst)
+	if (!ft_determine_specifier((char *)alst->content[i], *alst))
 		(*alst)->flag = 0;
 }
