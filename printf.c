@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str.c                                           :+:      :+:    :+:   */
+/*   printf.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/07 09:03:57 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/14 17:11:55 by tcosse           ###   ########.fr       */
+/*   Created: 2020/09/14 15:26:30 by tcosse            #+#    #+#             */
+/*   Updated: 2020/09/18 11:40:42 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_prinft.h"
 
-int	ft_add_str(char *str, t_list **new)
+int	ft_printf(char *format, ...)
 {
-	if (!(*new = ft_lstnew(str)))
-		return (0);
-	return (1);
-}
+	va_list	lst_args;
+	t_list	*alst;
 
-int	ft_add_char(char c, t_list **new)
-{
-	char *str;
-
-	if (!(str = (char *)malloc(sizeof(char) * 2)))
+	va_start(args, format);
+	if (!(alst = ft_creat_lst(format)))
 		return (0);
-	*str = c;
-	str[1] = 0;
-	if (!(*new = ft_lstnew(str)))
+	if (!(ft_complet(alst, lst_args)))
 		return (0);
-	return (1);
+	va_end(lst_args);
 }

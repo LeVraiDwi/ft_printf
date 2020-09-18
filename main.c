@@ -5,29 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/07 08:34:39 by tcosse            #+#    #+#             */
-/*   Updated: 2020/08/31 18:10:46 by tcosse           ###   ########.fr       */
+/*   Created: 2020/09/11 14:31:56 by tcosse            #+#    #+#             */
+/*   Updated: 2020/09/18 11:33:14 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "ft_printf.h"
+#include "printf.h"
 
-void ft_del(void *content)
+int	main()
 {
-	free(content);
-	content = 0;
-}
-
-int	main(int argv, char **argc)
-{
-	int c = -1541351;
-	t_list *alst;
-
-	(void)argv;
-	if(!(ft_new_pointer(c, &alst)))
-		return (0);
+	t_list	*alst;
+	
+	alst = ft_creat_lst("qkjasf %*i %*..*s %16.*s asf", 12, 14, 16);
 	ft_display(alst);
-	printf("\n%p\n", c);
 	ft_lstclear(&alst, &ft_del);
 }

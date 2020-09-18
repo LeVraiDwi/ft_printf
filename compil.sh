@@ -1,7 +1,7 @@
-#!bin/sh
-
-cd libft
-make
-cd ../
-gcc *.c libft/libft.a
+make re
+echo "						============						"
+gcc $1 main.c printf.a libft/libft.a
+echo "						============						"
 ./a.out
+echo "						============						"
+make clean

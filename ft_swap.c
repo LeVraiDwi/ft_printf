@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str.c                                           :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/07 09:03:57 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/14 17:11:55 by tcosse           ###   ########.fr       */
+/*   Created: 2020/09/14 16:32:14 by tcosse            #+#    #+#             */
+/*   Updated: 2020/09/15 18:11:30 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_add_str(char *str, t_list **new)
+int	ft_swap_flag(char *str, char **tmp)
 {
-	if (!(*new = ft_lstnew(str)))
-		return (0);
-	return (1);
-}
+	char	*swp;
+	int		margin;
 
-int	ft_add_char(char c, t_list **new)
-{
-	char *str;
+	swp = *tmp;
+	if (*str == '0')
+		if(ft_is_digit(*(str + 1)))
 
-	if (!(str = (char *)malloc(sizeof(char) * 2)))
-		return (0);
-	*str = c;
-	str[1] = 0;
-	if (!(*new = ft_lstnew(str)))
-		return (0);
-	return (1);
 }
