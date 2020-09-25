@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:59:40 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/24 17:07:23 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/09/25 15:59:46 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int	ft_determine_specifier_(va_list lst_arg, char spe, t_list *alst)
 		if (!(ft_add_per(alst)))
 			return (0);
 	}
+	else
+		alst->flag = 0;
 	return (1);
 }
 
@@ -72,6 +74,12 @@ int	ft_is_number(va_list lst_arg, t_list *alst, int i)
 		if ((i = ft_addstr(alst, i + 1, tmp)) == -1)
 			return (0);
 		tmp = ft_free(tmp);
+	}
+	else if (!(ft_isdigit(((char *)alst->content)[i])))
+	{
+		if (!(ft_insertstr(alst, i, "0")))
+			return (0);
+		i++;
 	}
 	else
 		while (ft_isdigit(((char *)alst->content)[i]))

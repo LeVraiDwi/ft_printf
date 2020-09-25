@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 08:34:39 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/24 16:47:15 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/09/25 16:07:02 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,14 @@ int		ft_split_args(va_list lst_arg, const char *format, t_list **alst)
 	if (!(str = ft_strdup(format)))
 		return (0);
 	i = 0;
-	while (str[i] != 0)
+	while (str[i++] != 0)
 	{
-		if ((ft_is_flag(str + i)))
+		if ((ft_is_flag(str + i - 1)))
 		{
-			if (!(ft_add_lst(lst_arg, &str, alst, i)))
+			if (!(ft_add_lst(lst_arg, &str, alst, i - 1)))
 				return (0);
 			i = 0;
 		}
-		i++;
 	}
 	if (*str)
 	{
