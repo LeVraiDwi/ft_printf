@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:12:29 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/18 13:16:46 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/09/19 16:50:24 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_new(va_list lst_arg, t_list *alst, char c)
 	margin = ft_margin(lst_arg, (char *)alst->content);
 	if ((alst->flag & FLAG_PR) == 1)
 		precision = ft_precision(lst_arg, (char *)alst->content);
-	if (!(ft_determine_specifier(c, alst)))
+	if (!(ft_determine_specifier(lst_arg, c, alst)))
 		return (0);
 	return (1);
 }

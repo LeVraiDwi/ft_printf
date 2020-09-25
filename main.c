@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 14:31:56 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/18 11:33:14 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/09/24 16:27:01 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main()
 {
 	t_list	*alst;
 	
-	alst = ft_creat_lst("qkjasf %*i %*..*s %16.*s asf", 12, 14, 16);
+	alst = ft_creat_lst("qkjasf %*i %*..*s %16.*s asf", 12, 14, 16, 16, "dsf");
 	ft_display(alst);
 	ft_lstclear(&alst, &ft_del);
 }

@@ -4,7 +4,9 @@ SRC_PATH = ./
 
 SRC_NAME =	ft_display.c ft_is_specifier.c ft_lst.c \
 			ft_flag.c ft_lst.c ft_del.c \
-			ft_utils.c ft_new.c \
+			ft_utils.c ft_new.c ft_int.c\
+			ft_str.c ft_hexa.c ft_int.c\
+			ft_per.c
 
 OBJS = ${SRCS:.c=.o}
 

@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 15:46:58 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/11 15:48:36 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/09/24 16:56:07 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@ void	ft_del(void *content)
 {
 	free(content);
 	content = 0;
+	flag = 0;
 }

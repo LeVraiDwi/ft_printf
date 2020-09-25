@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 08:20:55 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/18 13:16:13 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/09/24 16:42:15 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,19 @@ int		ft_printf(const char *format, ...);
 int		ft_is_flag(char *format);
 int		ft_add_lst(va_list lst_arg, char **format, t_list **alst, int i);
 int		ft_split_args(va_list lst_arg, const char *format, t_list **alst);
-int		ft_determine_specifier(char spe, t_list *alst);
+int		ft_determine_specifier(va_list lst_arg, char spe, t_list *alst);
+int		ft_determine_specifier_(va_list lst_arg, char spe, t_list *alst);
 int		ft_addstr(t_list *alst, int start, char *add);
 int		ft_flag(va_list lst_arg, t_list *alst);
 int		ft_if_precision(t_list *alst, int i);
 int		ft_is_number(va_list lst_arg, t_list *alst, int i);
+int		ft_add_int(va_list lst_arg, t_list *alst);
+int		ft_add_u_int(va_list lst_arg, t_list *alst);
+int		ft_add_str(va_list lst_arg, t_list *alst);
+int		ft_add_char(va_list lst_arg, t_list *alst);
+int		ft_add_hexa(va_list lst_arg, t_list *alst, int upper);
+int		ft_add_per(t_list *alst);
+int		ft_add_pointer(va_list lst_arg, t_list *alst);
 char	ft_is_specifier(char c);
 void	ft_del(void *content);
 void	ft_display(t_list *alst);

@@ -6,39 +6,72 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:59:40 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/18 13:01:29 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/09/24 17:07:23 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_determine_specifier(char spe, t_list *alst)
+int	ft_determine_specifier(va_list lst_arg, char spe, t_list *alst)
 {
 	if (spe == 'd' || spe == 'i')
-		alst->flag += 16;
+	{
+		if (!(ft_add_int(lst_arg, alst)))
+			return (0);
+	}
 	else if (spe == 'c')
-		alst->flag += 64;
+	{
+		if (!(ft_add_char(lst_arg, alst)))
+			return (0);
+	}
 	else if (spe == 'x')
-		alst->flag += 8;
-	else if (spe == 'X')
-		alst->flag += 1024;
-	else if (spe == 's')
-		alst->flag += 256;
-	else if (spe == 'u')
-		alst->flag += 512;
-	else if (spe == '%')
-		alst->flag += 128;
+	{
+		if (!(ft_add_hexa(lst_arg, alst, 0)))
+			return (0);
+	}
 	else
-		alst->flag = 0;
+	{
+		return (ft_determine_specifier_(lst_arg, spe, alst));
+	}
+	return (1);
+}
+
+int	ft_determine_specifier_(va_list lst_arg, char spe, t_list *alst)
+{
+	if (spe == 's')
+	{
+		if (!(ft_add_str(lst_arg, alst)))
+			return (0);
+	}
+	else if (spe == 'X')
+	{
+		if (!(ft_add_hexa(lst_arg, alst, 1)))
+			return (0);
+	}
+	else if (spe == 'u')
+	{
+		if (!(ft_add_u_int(lst_arg, alst)))
+			return (0);
+	}
+	else if (spe == '%')
+	{
+		if (!(ft_add_per(alst)))
+			return (0);
+	}
 	return (1);
 }
 
 int	ft_is_number(va_list lst_arg, t_list *alst, int i)
 {
+	char	*tmp;
+
 	if (((char *)alst->content)[i] == '*')
 	{
-		if ((i = ft_addstr(alst, i + 1, ft_itoa(va_arg(lst_arg, int)))) == -1)
+		if (!(tmp = ft_itoa(va_arg(lst_arg, int))))
 			return (0);
+		if ((i = ft_addstr(alst, i + 1, tmp)) == -1)
+			return (0);
+		tmp = ft_free(tmp);
 	}
 	else
 		while (ft_isdigit(((char *)alst->content)[i]))
@@ -65,7 +98,7 @@ int	ft_flag(va_list lst_arg, t_list *alst)
 		i++;
 		i = ft_is_number(lst_arg, alst, i);
 	}
-	if(!(ft_new(lst_arg, alst, ((char *)alst->content)[i])))
+	if (!(ft_new(lst_arg, alst, ((char *)alst->content)[i])))
 		return (0);
 	return (1);
 }
