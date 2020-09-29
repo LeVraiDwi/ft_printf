@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 08:30:17 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/25 15:56:46 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/09/29 15:04:30 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_display(t_list *alst)
 {
 	while (alst)
 	{
+		printf("bloc: \n");
 		write(1, alst->content, ft_strlen(alst->content));
 		alst = alst->next;
 	}

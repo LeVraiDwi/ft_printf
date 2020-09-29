@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 08:20:55 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/25 15:54:38 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/09/29 14:09:46 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ int		ft_add_pointer(va_list lst_arg, t_list *alst);
 int		ft_addback(t_list *alst, int n, char c);
 int		ft_addfront(t_list *alst, int n, char c);
 int		ft_zero_space(t_list *alst);
+int		ft_pr_zero(t_list *alst);
+int		ft_pr_num(t_list *alst, int pr);
+int		ft_pr_string(t_list *alst, int pr);
+int		ft_format_precision(t_list *alst, int pr);
 char	ft_is_specifier(char c);
 void	ft_del(void *content);
 void	ft_display(t_list *alst);

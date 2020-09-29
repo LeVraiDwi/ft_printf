@@ -4,5 +4,5 @@
 
 int	main()
 {
-	printf("%-12p\n", "gsfdh");
+	printf("%.x\n", 0);
 }
