@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 17:03:24 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/29 17:00:51 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/09/29 17:12:47 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_pr_pointer(t_list *alst, int pr)
 	if (!(new = (char *)malloc(sizeof(char) * (pr + 3))))
 		return (0);
 	i = 0;
-	l = pr - (l- 2);
+	l = pr - (l - 2);
 	new[i++] = *str++;
 	new[i++] = *str++;
 	while (l--)

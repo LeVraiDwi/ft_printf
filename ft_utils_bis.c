@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 14:10:50 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/29 16:48:45 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/09/29 17:13:56 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ int	ft_insertstr(t_list *alst, int start, char *add)
 
 int	ft_pr_zero(t_list *alst)
 {
-	if (alst->flag & FLAG_D || alst->flag & FLAG_S || alst->flag & FLAG_X || alst->flag & FLAG_U)
+	if (alst->flag & FLAG_D || alst->flag & FLAG_S
+		|| alst->flag & FLAG_X || alst->flag & FLAG_U)
 		if (!ft_atoi((char *)alst->content))
 		{
 			alst->content = ft_free(alst->content);

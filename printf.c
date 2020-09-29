@@ -6,13 +6,13 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:26:30 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/29 15:14:08 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/09/29 17:16:49 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_printf( const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	va_list	lst_args;
 	t_list	*alst;

@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 16:11:44 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/29 16:55:28 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/09/29 17:13:04 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	ft_add_per(t_list *alst)
 {
 	char	*str;
+
 	alst->flag = 128;
 	alst->content = ft_free(alst->content);
 	if (!(str = (char *)malloc(sizeof(char) * 2)))

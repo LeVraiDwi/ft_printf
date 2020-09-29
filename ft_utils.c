@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 14:10:50 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/29 16:48:04 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/09/29 17:15:29 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,10 +102,7 @@ int	ft_addback(t_list *alst, int n, char c)
 	while (n--)
 		str[i++] = c;
 	while (l--)
-	{
-		str[i] = *tmp++;
-		i++;
-	}
+		str[i++] = *tmp++;
 	str[i] = 0;
 	free(alst->content);
 	alst->content = str;
