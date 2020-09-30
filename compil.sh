@@ -1,6 +1,6 @@
 make re
 echo "						============						"
-gcc $1 main.c printf.a libft/libft.a
+gcc $1 main.c printf.a 
 echo "						============						"
 ./a.out
 echo "						============						"
