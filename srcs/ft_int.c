@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_int.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/11 14:31:56 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/01 10:55:37 by tcosse           ###   ########.fr       */
+/*   Created: 2020/08/07 08:20:51 by tcosse            #+#    #+#             */
+/*   Updated: 2020/09/24 16:43:48 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	main()
+int	ft_add_int(va_list lst_arg, t_list *alst)
 {
-	char *c;
+	alst->flag += 16;
+	alst->content = ft_free(alst->content);
+	if (!(alst->content = ft_itoa(va_arg(lst_arg, int))))
+		return (0);
+	return (1);
+}
 
-	c = "la bi";
-	ft_printf("ft_print : qkjasf %-*i i %*..*s %-16.*s %.6i asf\n", 12, 14, 16, 16, "dsf", 12);
-	printf("___print : qkjasf %-*i i %*..*s %-16.*s %.6i asf\n", 12, 14, 16, 16, "dsf", 12);
-	ft_printf("ft_print: qkjasf %-*i  %-*s %.15p asf %% %-*.13%\n", 12, 13, 13, "dsf", c, 12);
-	printf("___print: qkjasf %-*i  %-*s %.15p asf %% %-*.13%\n", 12, 13, 13, "dsf", c, 12);
+int	ft_add_u_int(va_list lst_arg, t_list *alst)
+{
+	alst->flag += 512;
+	alst->content = ft_free(alst->content);
+	if (!(alst->content = ft_u_itoa(va_arg(lst_arg, unsigned int))))
+		return (0);
 	return (1);
 }

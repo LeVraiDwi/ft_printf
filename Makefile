@@ -1,14 +1,16 @@
 SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
-SRC_PATH = ./
+LIBFT_OBJS = $(addprefix $(LIBFT_DIR)/,$(NAME_LIBFT))
+
+SRC_PATH = ./srcs
 
 SRC_NAME =	ft_display.c ft_is_specifier.c ft_lst.c \
 			ft_flag.c ft_lst.c ft_del.c \
 			ft_utils.c ft_new.c ft_int.c\
 			ft_str.c ft_hexa.c ft_int.c\
-			ft_per.c ft_utils_bis.c printf.c\
+			ft_per.c ft_utils_bis.c ft_printf.c\
 
-OBJS_LIBFT =	ft_memset.o ft_bzero.o ft_memcpy.o \
+NAME_LIBFT =	ft_memset.o ft_bzero.o ft_memcpy.o \
 			ft_memccpy.o ft_memmove.o ft_memchr.o \
 			ft_memcmp.o ft_strlen.o ft_isalpha.o \
 			ft_isdigit.o ft_isalnum.o ft_isascii.o \
@@ -27,11 +29,11 @@ OBJS_LIBFT =	ft_memset.o ft_bzero.o ft_memcpy.o \
 
 OBJS = ${SRCS:.c=.o}
 
-LIBFT_DIR = libft
+LIBFT_DIR = ./libft
 
 NAME = libftprintf.a
 
-HEADER = printf.h
+HEADER = -I "./include"
 
 CC = clang
 
@@ -40,16 +42,16 @@ RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -fPIE
 
 .c.o: 
-			${CC} ${CFLAGS} -c $< -o $@
+			${CC} ${CFLAGS} ${HEADER} -c $< -o $@
 
 ${NAME}:	${OBJS}
-			@(cd $(LIBFT_DIR) && $(MAKE))
-			ar rc ${NAME} ${OBJS} $(addprefix $(LIBFT_DIR)/, $(OBJS_LIBFT))
+			cd $(LIBFT_DIR) && $(MAKE)
+			ar rc ${NAME} ${OBJS} $(addprefix $(LIBFT_DIR)/,$(NAME_LIBFT))
 
 all:		${NAME}
 
 clean:
-			${RM} ${OBJS}
+			${RM} ${OBJS} ${LIBFT_OBJS}
 
 fclean:		clean
 			${RM} ${NAME}

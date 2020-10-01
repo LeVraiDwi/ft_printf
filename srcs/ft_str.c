@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_str.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/11 14:31:56 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/01 10:55:37 by tcosse           ###   ########.fr       */
+/*   Created: 2020/08/07 09:03:57 by tcosse            #+#    #+#             */
+/*   Updated: 2020/09/24 16:39:52 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	main()
+int	ft_add_str(va_list lst_arg, t_list *alst)
 {
-	char *c;
+	alst->content = ft_free(alst->content);
+	if (!(alst->content = ft_strdup(va_arg(lst_arg, char *))))
+		return (0);
+	alst->flag += 256;
+	return (1);
+}
 
-	c = "la bi";
-	ft_printf("ft_print : qkjasf %-*i i %*..*s %-16.*s %.6i asf\n", 12, 14, 16, 16, "dsf", 12);
-	printf("___print : qkjasf %-*i i %*..*s %-16.*s %.6i asf\n", 12, 14, 16, 16, "dsf", 12);
-	ft_printf("ft_print: qkjasf %-*i  %-*s %.15p asf %% %-*.13%\n", 12, 13, 13, "dsf", c, 12);
-	printf("___print: qkjasf %-*i  %-*s %.15p asf %% %-*.13%\n", 12, 13, 13, "dsf", c, 12);
+int	ft_add_char(va_list lst_arg, t_list *alst)
+{
+	char *str;
+
+	if (!(str = (char *)malloc(sizeof(char) * 2)))
+		return (0);
+	*str = va_arg(lst_arg, int);
+	str[1] = 0;
+	alst->content = ft_free(alst->content);
+	alst->content = str;
+	alst->flag += 64;
 	return (1);
 }

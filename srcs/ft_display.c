@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_display.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/11 14:31:56 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/01 10:55:37 by tcosse           ###   ########.fr       */
+/*   Created: 2020/08/07 08:30:17 by tcosse            #+#    #+#             */
+/*   Updated: 2020/09/29 15:19:33 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	main()
+void	ft_display(t_list *alst)
 {
-	char *c;
-
-	c = "la bi";
-	ft_printf("ft_print : qkjasf %-*i i %*..*s %-16.*s %.6i asf\n", 12, 14, 16, 16, "dsf", 12);
-	printf("___print : qkjasf %-*i i %*..*s %-16.*s %.6i asf\n", 12, 14, 16, 16, "dsf", 12);
-	ft_printf("ft_print: qkjasf %-*i  %-*s %.15p asf %% %-*.13%\n", 12, 13, 13, "dsf", c, 12);
-	printf("___print: qkjasf %-*i  %-*s %.15p asf %% %-*.13%\n", 12, 13, 13, "dsf", c, 12);
-	return (1);
+	while (alst)
+	{
+		write(1, alst->content, ft_strlen(alst->content));
+		alst = alst->next;
+	}
 }

@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   printf.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/11 14:31:56 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/01 10:55:37 by tcosse           ###   ########.fr       */
+/*   Created: 2020/09/14 15:26:30 by tcosse            #+#    #+#             */
+/*   Updated: 2020/09/29 17:16:49 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	main()
+int	ft_printf(const char *format, ...)
 {
-	char *c;
+	va_list	lst_args;
+	t_list	*alst;
 
-	c = "la bi";
-	ft_printf("ft_print : qkjasf %-*i i %*..*s %-16.*s %.6i asf\n", 12, 14, 16, 16, "dsf", 12);
-	printf("___print : qkjasf %-*i i %*..*s %-16.*s %.6i asf\n", 12, 14, 16, 16, "dsf", 12);
-	ft_printf("ft_print: qkjasf %-*i  %-*s %.15p asf %% %-*.13%\n", 12, 13, 13, "dsf", c, 12);
-	printf("___print: qkjasf %-*i  %-*s %.15p asf %% %-*.13%\n", 12, 13, 13, "dsf", c, 12);
+	va_start(lst_args, format);
+	if (!(alst = ft_creat_lst(format, lst_args)))
+		return (0);
+	va_end(lst_args);
+	ft_display(alst);
+	ft_lstclear(&alst, &ft_del);
 	return (1);
 }
