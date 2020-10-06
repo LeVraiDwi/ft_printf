@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 08:34:39 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/29 15:15:48 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/06 15:44:16 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int		ft_add_lst(va_list lst_arg, char **format, t_list **alst, int i)
 		return (0);
 	tmp = ft_free((void *)tmp);
 	ft_flag(lst_arg, add_lst);
+	ft_format(add_lst);
 	return (1);
 }
 

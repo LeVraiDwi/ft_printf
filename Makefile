@@ -1,8 +1,8 @@
 SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
-LIBFT_OBJS = $(addprefix $(LIBFT_DIR)/,$(NAME_LIBFT))
-
 SRC_PATH = ./srcs
+
+LIBFT_PATH = ./libft
 
 SRC_NAME =	ft_display.c ft_is_specifier.c ft_lst.c \
 			ft_flag.c ft_lst.c ft_del.c \
@@ -10,7 +10,9 @@ SRC_NAME =	ft_display.c ft_is_specifier.c ft_lst.c \
 			ft_str.c ft_hexa.c ft_int.c\
 			ft_per.c ft_utils_bis.c ft_printf.c\
 
-NAME_LIBFT =	ft_memset.o ft_bzero.o ft_memcpy.o \
+OBJS = ${SRCS:.c=.o}
+
+OBJS_LIBFT =	ft_memset.o ft_bzero.o ft_memcpy.o \
 			ft_memccpy.o ft_memmove.o ft_memchr.o \
 			ft_memcmp.o ft_strlen.o ft_isalpha.o \
 			ft_isdigit.o ft_isalnum.o ft_isascii.o \
@@ -27,9 +29,7 @@ NAME_LIBFT =	ft_memset.o ft_bzero.o ft_memcpy.o \
 			ft_lstclear.o ft_lstiter.o ft_int_hexa.o \
 			ft_pointer_hexa.o ft_free.o\
 
-OBJS = ${SRCS:.c=.o}
-
-LIBFT_DIR = ./libft
+LIBFT = $(addprefix $(LIBFT_PATH)/,$(OBJS_LIBFT))
 
 NAME = libftprintf.a
 
@@ -45,8 +45,8 @@ CFLAGS = -Wall -Wextra -Werror -fPIE
 			${CC} ${CFLAGS} ${HEADER} -c $< -o $@
 
 ${NAME}:	${OBJS}
-			cd $(LIBFT_DIR) && $(MAKE)
-			ar rc ${NAME} ${OBJS} $(addprefix $(LIBFT_DIR)/,$(NAME_LIBFT))
+			cd ./libft && $(MAKE)
+			ar rc ${NAME} ${OBJS} ${LIBFT}
 
 all:		${NAME}
 

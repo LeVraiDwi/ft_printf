@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 14:10:50 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/29 17:15:29 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/06 11:57:55 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,10 @@ int	ft_zero_space(t_list *alst)
 		if ((alst->flag & FLAG_U) && !(alst->flag & FLAG_PR))
 			return ('0');
 		if ((alst->flag & FLAG_X) && !(alst->flag & FLAG_PR))
+			return ('0');
+		if ((alst->flag & FLAG_S))
+			return ('0');
+		if ((alst->flag & FLAG_PE))
 			return ('0');
 	}
 	return (' ');

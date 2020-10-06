@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 08:20:55 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/01 10:50:19 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/06 14:56:39 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
-# include "libft.h"
 # include <stdio.h>
+# include "libft.h"
 # define SPECIFIER "cspdiuxX%"
 # define FLAG_PR 1
 # define FLAG_Z 2
@@ -28,11 +28,10 @@
 # define FLAG_PE 128
 # define FLAG_S 256
 # define FLAG_U 512
-# define FLAG_XX 1024
 
-int		ft_new(va_list lst_arg, t_list *alst, char spe);
-int		ft_margin(char *str);
-int		ft_precision(char *str);
+int		ft_format(t_list *alst);
+int		ft_margin(va_list lst_arg, t_list *alst, int i);
+int		ft_precision(va_list lst_arg, t_list *alst, int i);
 int		ft_printf(const char *format, ...);
 int		ft_is_flag(char *format);
 int		ft_add_lst(va_list lst_arg, char **format, t_list **alst, int i);
@@ -58,7 +57,7 @@ int		ft_pr_zero(t_list *alst);
 int		ft_pr_num(t_list *alst, int pr);
 int		ft_pr_string(t_list *alst, int pr);
 int		ft_pr_pointer(t_list *alst, int pr);
-int		ft_format_precision(t_list *alst, int pr);
+int		ft_format_precision(t_list *alst);
 char	ft_is_specifier(char c);
 void	ft_del(void *content);
 void	ft_display(t_list *alst);

@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:59:40 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/29 15:48:28 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/06 15:46:26 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,50 +68,27 @@ int	ft_determine_specifier_(va_list lst_arg, char spe, t_list *alst)
 	return (1);
 }
 
-int	ft_is_number(va_list lst_arg, t_list *alst, int i)
-{
-	char	*tmp;
-
-	if (((char *)alst->content)[i] == '*')
-	{
-		if (!(tmp = ft_itoa(va_arg(lst_arg, int))))
-			return (0);
-		if ((i = ft_addstr(alst, i + 1, tmp)) == -1)
-			return (0);
-		tmp = ft_free(tmp);
-	}
-	else if (!(ft_isdigit(((char *)alst->content)[i])))
-	{
-		if (!(ft_insertstr(alst, i, "0")))
-			return (0);
-		i++;
-	}
-	else
-		while (ft_isdigit(((char *)alst->content)[i]))
-			i++;
-	return (i);
-}
-
 int	ft_flag(va_list lst_arg, t_list *alst)
 {
-	int	i;
+	int		i;
+	char	*str;
 
 	i = 1;
-	if (((char *)alst->content)[i] == '0' || ((char *)alst->content)[i] == '-')
+	str = alst->content;
+	while (str[i])
 	{
-		if (((char *)alst->content)[i++] == '0')
-			alst->flag += 2;
+		if (ft_is_specifier(str[i]))
+			return (ft_determine_specifier(lst_arg, str[i], alst));
+		else if (str[i] == '0' && !(alst->flag & FLAG_Z))
+			alst->flag += FLAG_Z;
+		else if (ft_isdigit(str[i]) || str[i] == '*')
+			i = ft_margin(lst_arg, alst, i);
+		else if (str[i] == '-' && !(alst->flag & FLAG_M))
+			alst->flag += FLAG_M;
+		else if (str [i] == '.')
+			i = ft_precision(lst_arg, alst, i);
 		else
-			alst->flag += 4;
+			i++;
 	}
-	i = ft_is_number(lst_arg, alst, i);
-	if (((char *)alst->content)[i] == '.')
-	{
-		alst->flag += 1;
-		i++;
-		i = ft_is_number(lst_arg, alst, i);
-	}
-	if (!(ft_new(lst_arg, alst, ((char *)alst->content)[i])))
-		return (0);
 	return (1);
 }

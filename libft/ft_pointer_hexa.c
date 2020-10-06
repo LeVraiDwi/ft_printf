@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 16:18:17 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/29 16:13:26 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/06 11:45:05 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,15 @@ char			*ft_null(void)
 {
 	char	*str;
 
-	if (!(str = (char *)malloc(sizeof(char) * 6)))
+	if (!(str = (char *)malloc(sizeof(char) * 7)))
 		return (0);
 	str[0] = '(';
 	str[1] = 'n';
 	str[2] = 'u';
 	str[3] = 'l';
-	str[4] = ')';
-	str[5] = 0;
+	str[4] = 'l';
+	str[5] = ')';
+	str[6] = 0;
 	return (str);
 }
 

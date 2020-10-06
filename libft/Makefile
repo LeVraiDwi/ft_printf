@@ -37,8 +37,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 
 ${NAME}:	${OBJS}
-			echo "libft compile\n"
-
+			ar rc ${NAME} ${OBJS}
+			
 all:		${NAME}
 
 clean:
