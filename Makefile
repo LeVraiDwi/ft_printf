@@ -27,7 +27,7 @@ OBJS_LIBFT =	ft_memset.o ft_bzero.o ft_memcpy.o \
 			ft_lstnew.o ft_lstadd_front.o ft_lstsize.o \
 			ft_lstlast.o ft_lstadd_back.o ft_lstdelone.o \
 			ft_lstclear.o ft_lstiter.o ft_int_hexa.o \
-			ft_pointer_hexa.o ft_free.o\
+			ft_pointer_hexa.o ft_free.o \
 
 LIBFT = $(addprefix $(LIBFT_PATH)/,$(OBJS_LIBFT))
 
