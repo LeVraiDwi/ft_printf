@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:12:29 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/06 15:48:31 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/07 16:26:08 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,25 +58,19 @@ int	ft_format_precision(t_list *alst)
 	int	pr;
 
 	pr = alst->precision;
-	if (alst->flag & FLAG_PE)
-		return (1);
-	else if (pr == 0 && !(alst->flag & FLAG_P))
-		return (ft_pr_zero(alst));
-	if (alst->flag & FLAG_S)
-	{
-		if (alst->flag & FLAG_PR)
-			return (ft_pr_string(alst, pr));
-		else
-			return (1);
-	}
-	else if (alst->flag & FLAG_P)
-		return (ft_pr_pointer(alst, pr));
-	else
+	 if (alst->flag & FLAG_S)
+		return (ft_pr_string(alst, pr));
+	else if (alst->flag & FLAG_P || (alst->flag & FLAG_D))
 		return (ft_pr_num(alst, pr));
+	else
+		return (1);
 }
 
 int	ft_format(t_list *alst)
 {
+	char	c;
+
+	c = ft_zero_space(alst);
 	if (alst->flag & FLAG_PR)
 		if (!(ft_format_precision(alst)))
 			return (0);
@@ -87,6 +81,9 @@ int	ft_format(t_list *alst)
 	}
 	else
 		if (!(ft_addback(alst, alst->margin, ft_zero_space(alst))))
+			return (0);
+	if (alst->flag & FLAG_P)
+		if (!(ft_insertstr(alst, 0, "0x")))
 			return (0);
 	return (1);
 }

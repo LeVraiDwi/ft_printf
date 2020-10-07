@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:59:40 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/06 15:46:26 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/07 16:29:33 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,14 @@ int	ft_flag(va_list lst_arg, t_list *alst)
 	str = alst->content;
 	while (str[i])
 	{
-		if (ft_is_specifier(str[i]))
-			return (ft_determine_specifier(lst_arg, str[i], alst));
-		else if (str[i] == '0' && !(alst->flag & FLAG_Z))
+		if (ft_isalpha(str[i]))
+		{
+			if (ft_is_specifier(str[i]))
+				return (ft_determine_specifier(lst_arg, str[i], alst));
+			else
+				return (1);
+		}
+		if (str[i] == '0' && !(alst->flag & FLAG_Z))
 			alst->flag += FLAG_Z;
 		else if (ft_isdigit(str[i]) || str[i] == '*')
 			i = ft_margin(lst_arg, alst, i);

@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 14:10:50 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/29 17:13:56 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/07 16:30:03 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,6 @@ int	ft_insertstr(t_list *alst, int start, char *add)
 	return (l - 1);
 }
 
-int	ft_pr_zero(t_list *alst)
-{
-	if (alst->flag & FLAG_D || alst->flag & FLAG_S
-		|| alst->flag & FLAG_X || alst->flag & FLAG_U)
-		if (!ft_atoi((char *)alst->content))
-		{
-			alst->content = ft_free(alst->content);
-			if (!(alst->content = malloc(sizeof(char) * 1)))
-				return (0);
-			((char *)alst->content)[0] = 0;
-		}
-	return (1);
-}
-
 int	ft_pr_num(t_list *alst, int pr)
 {
 	char	*str;
@@ -62,6 +48,8 @@ int	ft_pr_num(t_list *alst, int pr)
 
 	str = alst->content;
 	l = ft_strlen(str);
+	if (alst->flag & FLAG_P)
+		l += 2;
 	if (pr <= l)
 		return (1);
 	if (!(new = (char *)malloc(sizeof(char) * (pr + 1))))

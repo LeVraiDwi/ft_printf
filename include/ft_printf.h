@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 08:20:55 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/06 14:56:39 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/07 15:52:12 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,11 @@
 # define FLAG_PR 1
 # define FLAG_Z 2
 # define FLAG_M 4
-# define FLAG_X 8
+# define FLAG_S 8
 # define FLAG_D 16
 # define FLAG_P 32
 # define FLAG_C 64
-# define FLAG_PE 128
-# define FLAG_S 256
-# define FLAG_U 512
+# define FLAG_NULL 128
 
 int		ft_format(t_list *alst);
 int		ft_margin(va_list lst_arg, t_list *alst, int i);

@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 14:10:50 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/06 11:57:55 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/07 16:20:46 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,9 @@ int	ft_addstr(t_list *alst, int start, char *add)
 
 int	ft_zero_space(t_list *alst)
 {
-	if (alst->flag & FLAG_Z)
+	if (!(alst->flag & FLAG_M))
 	{
-		if ((alst->flag & FLAG_D) && !(alst->flag & FLAG_PR))
-			return ('0');
-		if ((alst->flag & FLAG_U) && !(alst->flag & FLAG_PR))
-			return ('0');
-		if ((alst->flag & FLAG_X) && !(alst->flag & FLAG_PR))
-			return ('0');
-		if ((alst->flag & FLAG_S))
-			return ('0');
-		if ((alst->flag & FLAG_PE))
+		if (!(alst->flag & FLAG_PR) || (alst->flag & FLAG_S))
 			return ('0');
 	}
 	return (' ');
@@ -64,10 +56,10 @@ int	ft_addfront(t_list *alst, int n, char c)
 	char	*str;
 	int		i;
 
-	if (!alst || !alst->content)
-		return (0);
 	i = 0;
 	l = ft_strlen((char *)alst->content);
+	if (alst->flag & FLAG_P)
+		l += 2;
 	if (n <= l)
 		return (1);
 	if (!(str = malloc(sizeof(char) * n + 1)))
@@ -93,11 +85,11 @@ int	ft_addback(t_list *alst, int n, char c)
 	char	*tmp;
 	int		i;
 
-	if (!alst || !alst->content)
-		return (0);
 	i = 0;
 	tmp = (char *)alst->content;
 	l = ft_strlen((char *)alst->content);
+	if (alst->flag & FLAG_P)
+		l += 2;
 	if (n <= l)
 		return (1);
 	if (!(str = malloc(sizeof(char) * n + 1)))
