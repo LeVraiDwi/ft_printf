@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:59:40 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/07 16:29:33 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/07 16:44:35 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,21 @@ int	ft_determine_specifier_(va_list lst_arg, char spe, t_list *alst)
 	return (1);
 }
 
+int	ft_endofflag(va_list lst_arg, t_list *alst, char c)
+{
+	if (ft_is_specifier(c))
+		return (ft_determine_specifier(lst_arg, c, alst));
+	else
+	{
+		alst->content = ft_free(alst->content);
+		alst->flag += FLAG_NULL;
+		if(!(alst->content = ft_strdup("")))
+			return (0);
+		return (1);
+	}
+
+}
+
 int	ft_flag(va_list lst_arg, t_list *alst)
 {
 	int		i;
@@ -78,14 +93,12 @@ int	ft_flag(va_list lst_arg, t_list *alst)
 	while (str[i])
 	{
 		if (ft_isalpha(str[i]))
-		{
-			if (ft_is_specifier(str[i]))
-				return (ft_determine_specifier(lst_arg, str[i], alst));
-			else
-				return (1);
-		}
+			return (ft_endofflag(lst_arg, alst, str[i]));
 		if (str[i] == '0' && !(alst->flag & FLAG_Z))
+		{
 			alst->flag += FLAG_Z;
+			i++;
+		}
 		else if (ft_isdigit(str[i]) || str[i] == '*')
 			i = ft_margin(lst_arg, alst, i);
 		else if (str[i] == '-' && !(alst->flag & FLAG_M))
