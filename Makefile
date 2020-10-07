@@ -39,7 +39,7 @@ CC = clang
 
 RM = rm -f
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fPIE
 
 .c.o: 
 			${CC} ${CFLAGS} ${HEADER} -c $< -o $@
