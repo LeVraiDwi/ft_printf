@@ -6,17 +6,22 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 08:30:17 by tcosse            #+#    #+#             */
-/*   Updated: 2020/09/29 15:19:33 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/07 18:15:12 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_display(t_list *alst)
+int	ft_display(t_list *alst)
 {
+	int	i;
+	
+	i = 0;
 	while (alst)
 	{
+		i += ft_strlen((char *)alst->content);
 		write(1, alst->content, ft_strlen(alst->content));
 		alst = alst->next;
 	}
+	return (i);
 }
