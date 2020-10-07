@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 17:03:24 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/07 15:52:37 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/07 19:17:15 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,16 @@ int	ft_add_pointer(va_list lst_arg, t_list *alst)
 {
 	void *p;
 
+	p = va_arg(lst_arg, void *);
+	if (!p)
+	{
+		if (!(ft_null(alst)))
+			return (0);
+		alst += FLAG_NULL;
+		return (1);
+	}
 	alst->flag += 32;
 	alst->content = ft_free(alst->content);
-	p = va_arg(lst_arg, void *);
 	if (!(alst->content = ft_pointer_hexa(p)))
 		return (0);
 	return (1);

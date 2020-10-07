@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 08:20:55 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/07 19:05:48 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/07 19:12:10 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int		ft_pr_string(t_list *alst, int pr);
 int		ft_pr_pointer(t_list *alst, int pr);
 int		ft_format_precision(t_list *alst);
 int		ft_display(t_list *alst);
+int		ft_null(t_list *alst);
 char	ft_is_specifier(char c);
 void	ft_del(void *content);
 t_list	*ft_creat_lst(const char *format, va_list lst_arg);
