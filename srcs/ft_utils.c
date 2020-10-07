@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 14:10:50 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/07 16:20:46 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/07 18:46:38 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,12 @@ int	ft_addstr(t_list *alst, int start, char *add)
 
 int	ft_zero_space(t_list *alst)
 {
-	if (!(alst->flag & FLAG_M))
+	if (alst->flag & FLAG_M)
+		return (' ');
+	if (alst->flag & FLAG_Z)
 	{
+		if (alst->flag & FLAG_C)
+			return ('0');
 		if (!(alst->flag & FLAG_PR) || (alst->flag & FLAG_S))
 			return ('0');
 	}

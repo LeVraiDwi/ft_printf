@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:59:40 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/07 16:44:35 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/07 18:26:41 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	ft_flag(va_list lst_arg, t_list *alst)
 	str = alst->content;
 	while (str[i])
 	{
-		if (ft_isalpha(str[i]))
+		if (ft_isalpha(str[i]) || str [i] == '%')
 			return (ft_endofflag(lst_arg, alst, str[i]));
 		if (str[i] == '0' && !(alst->flag & FLAG_Z))
 		{
