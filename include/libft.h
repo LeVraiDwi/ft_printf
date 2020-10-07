@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 19:46:41 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/06 11:02:02 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/07 16:50:20 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 typedef	struct	s_list
 {
 	void			*content;
-	unsigned short	flag;
+	char			flag;
 	unsigned int	margin;
 	unsigned int	precision;
 	struct s_list	*next;

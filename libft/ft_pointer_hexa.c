@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 16:18:17 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/06 11:45:05 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/07 16:49:41 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,10 @@ char			*ft_pointer_hexa(void *p)
 	if (!p)
 		return (ft_null());
 	n = (unsigned long)p;
-	l = size_long_hexa(n) + 3;
+	l = size_long_hexa(n) + 1;
 	if (!(str = (char *)malloc(sizeof(char) * l)))
 		return (0);
 	str[l - 1] = 0;
-	str[0] = '0';
-	str[1] = 'x';
 	long_hexa(n, str + l - 2);
 	return (str);
 }

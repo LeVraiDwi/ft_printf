@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 14:31:56 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/06 15:11:54 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/07 16:48:46 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ int	main()
 	char *c;
 
 	c = "la bi";
-	ft_printf("ft_print : %21s qkjasf \n", c);
+	ft_printf("ft_print : %21p qkjasf \n", c);
 	return (1);
 }
