@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 08:20:55 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/07 18:50:57 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/07 19:05:48 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include "libft.h"
 # define SPECIFIER "cspdiuxX%"
+# define STR_NULL "(null)"
 # define FLAG_PR 1
 # define FLAG_Z 2
 # define FLAG_M 4
