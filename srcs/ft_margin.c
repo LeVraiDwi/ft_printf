@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_margin.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/14 15:26:30 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/08 11:44:05 by tcosse           ###   ########.fr       */
+/*   Created: 2020/10/08 09:59:49 by tcosse            #+#    #+#             */
+/*   Updated: 2020/10/08 11:47:49 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_format_margin(t_list *alst)
 {
-	int	i;
-	va_list	lst_args;
-	t_list	*alst;
+	unsigned int	l;
 
-	va_start(lst_args, format);
-	if (!(alst = ft_creat_lst(format, lst_args)))
-		return (0);
-	va_end(lst_args);
-	i = ft_display(alst);
-	ft_lstclear(&alst, &ft_del);
-	return (i);
+	l = ft_strlen((char *)alst->content);
+	if (alst->flag & FLAG_P && alst->flag & FLAG_Z)
+		l += 2;
+	if (alst->margin > l)
+	{
+		if (alst->flag & FLAG_M)
+		{
+			if (!(ft_addfront(alst, alst->margin, ' ')))
+				return (0);
+		}
+		else
+			if (!(ft_addback(alst, alst->margin, l, ft_zero_space(alst))))
+				return (0);
+	}
+	return (1);
 }

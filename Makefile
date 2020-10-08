@@ -1,14 +1,23 @@
 SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
+UNAME_S = $(shell uname -s)
+
+ifeq ($(UNAME_S),Linux)
+	CFLAGS := -Wall -Wextra -Werror -fPIE
+else
+	CFLAGS := -Wall -Wextra -Werror
+endif
+
 SRC_PATH = ./srcs
 
 LIBFT_PATH = ./libft
 
 SRC_NAME =	ft_display.c ft_is_specifier.c ft_lst.c \
 			ft_flag.c ft_lst.c ft_del.c \
-			ft_utils.c ft_new.c ft_int.c\
-			ft_str.c ft_hexa.c ft_int.c\
-			ft_per.c ft_utils_bis.c ft_printf.c\
+			ft_utils.c ft_new.c ft_int.c \
+			ft_str.c ft_hexa.c ft_int.c \
+			ft_per.c ft_utils_bis.c ft_printf.c \
+			ft_margin.c \
 
 OBJS = ${SRCS:.c=.o}
 
@@ -38,8 +47,6 @@ HEADER = -I "./include"
 CC = clang
 
 RM = rm -f
-
-CFLAGS = -Wall -Wextra -Werror
 
 .c.o: 
 			${CC} ${CFLAGS} ${HEADER} -c $< -o $@

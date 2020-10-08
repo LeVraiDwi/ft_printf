@@ -6,12 +6,12 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 08:20:55 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/07 19:12:10 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/08 11:02:35 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
@@ -49,16 +49,17 @@ int		ft_add_char(va_list lst_arg, t_list *alst);
 int		ft_add_hexa(va_list lst_arg, t_list *alst, int upper);
 int		ft_add_per(t_list *alst);
 int		ft_add_pointer(va_list lst_arg, t_list *alst);
-int		ft_addback(t_list *alst, int n, char c);
+int		ft_addback(t_list *alst, int margin, int l, char c);
 int		ft_addfront(t_list *alst, int n, char c);
 int		ft_zero_space(t_list *alst);
 int		ft_pr_zero(t_list *alst);
-int		ft_pr_num(t_list *alst, int pr);
+int		ft_pr_num(t_list *alst, int pr, int l);
 int		ft_pr_string(t_list *alst, int pr);
 int		ft_pr_pointer(t_list *alst, int pr);
 int		ft_format_precision(t_list *alst);
 int		ft_display(t_list *alst);
 int		ft_null(t_list *alst);
+int		ft_format_margin(t_list *alst);
 char	ft_is_specifier(char c);
 void	ft_del(void *content);
 t_list	*ft_creat_lst(const char *format, va_list lst_arg);

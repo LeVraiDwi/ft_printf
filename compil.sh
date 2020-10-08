@@ -1,6 +1,6 @@
 make
 echo "						============						"
-gcc -I "./include" main.c libftprintf.a 
+gcc -I "./include" $1  main.c libftprintf.a 
 echo "						============						"
 ./a.out
 echo "						============						"

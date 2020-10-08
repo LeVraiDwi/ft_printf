@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 14:31:56 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/07 18:35:34 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/08 11:48:55 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	main()
 {
-	char *c;
+	char *str;
 
-	c = "la bi";
-	ft_printf("ft_print : %05c qkjasf \n", 'c');
-	printf("print : %05c qkjasf \n", 'c');
+	str = "asdgasdg";
+	ft_printf("ft_print : %022x qkjasf \n", 123);
+	printf("___print : %022x qkjasf \n", 123);
 	return (1);
 }
