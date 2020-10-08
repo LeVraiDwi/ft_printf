@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:59:40 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/08 15:26:18 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/08 15:52:59 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,10 @@ int	ft_endofflag(va_list lst_arg, t_list *alst, char c)
 	else
 	{
 		alst->content = ft_free(alst->content);
-		if(!(alst->content = ft_strdup("")))
+		if (!(alst->content = ft_strdup("")))
 			return (0);
 		return (1);
 	}
-
 }
 
 int	ft_flag(va_list lst_arg, t_list *alst)
@@ -91,11 +90,11 @@ int	ft_flag(va_list lst_arg, t_list *alst)
 	str = alst->content;
 	while (str[i])
 	{
-		if (ft_isalpha(str[i]) || str [i] == '%')
+		if (ft_isalpha(str[i]) || str[i] == '%')
 			return (ft_endofflag(lst_arg, alst, str[i]));
 		if (str[i] == '0')
 		{
-			if	(!(alst->flag & FLAG_Z))
+			if (!(alst->flag & FLAG_Z))
 				alst->flag += FLAG_Z;
 			i++;
 		}
@@ -103,7 +102,7 @@ int	ft_flag(va_list lst_arg, t_list *alst)
 			i = ft_margin(lst_arg, alst, i);
 		else if (str[i] == '-' && !(alst->flag & FLAG_M))
 			alst->flag += FLAG_M;
-		else if (str [i] == '.')
+		else if (str[i] == '.')
 			i = ft_precision(lst_arg, alst, i);
 		else
 			i++;

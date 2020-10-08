@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:26:30 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/08 11:44:05 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/08 15:50:22 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_printf(const char *format, ...)
 {
-	int	i;
+	int		i;
 	va_list	lst_args;
 	t_list	*alst;
 

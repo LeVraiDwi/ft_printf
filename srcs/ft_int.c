@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 08:20:51 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/08 12:34:18 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/08 15:48:30 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_add_int(va_list lst_arg, t_list *alst)
 	alst->content = ft_free(alst->content);
 	if (i == 0 && alst->flag & FLAG_PR && alst->precision == 0)
 	{
-		if(!(alst->content = ft_strdup("")))
+		if (!(alst->content = ft_strdup("")))
 			return (0);
 		return (1);
 	}
@@ -39,7 +39,7 @@ int	ft_add_u_int(va_list lst_arg, t_list *alst)
 	alst->content = ft_free(alst->content);
 	if (i == 0 && alst->flag & FLAG_PR && alst->precision == 0)
 	{
-		if(!(alst->content = ft_strdup("")))
+		if (!(alst->content = ft_strdup("")))
 			return (0);
 		return (1);
 	}

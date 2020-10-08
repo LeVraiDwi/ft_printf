@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 09:59:49 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/08 15:29:03 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/08 15:53:54 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ int	ft_format_margin(t_list *alst)
 			if (!(ft_addfront(alst, alst->margin, ' ')))
 				return (0);
 		}
-		else
-			if (!(ft_addback(alst, alst->margin, l, ft_zero_space(alst))))
-				return (0);
+		else if (!(ft_addback(alst, alst->margin, l, ft_zero_space(alst))))
+			return (0);
 	}
 	return (1);
 }

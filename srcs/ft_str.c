@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 09:03:57 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/07 19:20:01 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/08 15:51:10 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_null(t_list *alst)
 {
 	char	*str;
 
-	if(!(str = ft_strdup(STR_NULL)))
+	if (!(str = ft_strdup(STR_NULL)))
 		return (0);
 	free(alst->content);
 	alst->content = str;
