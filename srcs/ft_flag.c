@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:59:40 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/07 18:26:41 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/08 12:17:01 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ int	ft_endofflag(va_list lst_arg, t_list *alst, char c)
 	else
 	{
 		alst->content = ft_free(alst->content);
-		alst->flag += FLAG_NULL;
 		if(!(alst->content = ft_strdup("")))
 			return (0);
 		return (1);

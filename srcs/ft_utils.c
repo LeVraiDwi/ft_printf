@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 14:10:50 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/08 10:20:43 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/08 12:00:48 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	ft_addback(t_list *alst, int margin, int l, char c)
 	if (!(str = malloc(sizeof(char) * margin + 1)))
 		return (0);
 	margin = margin - l;
-	if (alst->flag & FLAG_D && tmp[0] == '-' && alst)
+	if (alst->flag & FLAG_D && tmp[0] == '-' && alst->flag & FLAG_Z && !(alst->flag & FLAG_PR))
 		str[i++] = *tmp++;
 	while (margin--)
 		str[i++] = c;

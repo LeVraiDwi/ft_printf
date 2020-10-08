@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 17:03:24 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/08 11:54:54 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/08 12:33:45 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,19 @@
 
 int	ft_add_hexa(va_list lst_arg, t_list *alst, int upper)
 {
-	alst->flag += 16;
+	unsigned int	i;
+
+	i = va_arg(lst_arg, unsigned int);
+	alst->flag += FLAG_D;
+	alst->flag += FLAG_X;
 	alst->content = ft_free(alst->content);
-	if (!(alst->content = ft_int_hexa(va_arg(lst_arg, unsigned int), upper)))
+	if (i == 0 && alst->flag & FLAG_PR && alst->precision == 0)
+	{
+		if (!(alst->content = ft_strdup("")))
+			return (0);
+		return (1);
+	}
+	if (!(alst->content = ft_int_hexa(i, upper)))
 		return (0);
 	return (1);
 }
@@ -26,15 +36,14 @@ int	ft_add_pointer(va_list lst_arg, t_list *alst)
 	void *p;
 
 	p = va_arg(lst_arg, void *);
-	if (!p)
+	alst->flag += FLAG_P;
+	alst->content = ft_free(alst->content);
+	if (!p && alst->flag & FLAG_PR && alst->precision == 0)
 	{
-		if (!(ft_null(alst)))
+		if (!(alst->content = ft_strdup("")))
 			return (0);
-		alst += FLAG_NULL;
 		return (1);
 	}
-	alst->flag += 32;
-	alst->content = ft_free(alst->content);
 	if (!(alst->content = ft_pointer_hexa(p)))
 		return (0);
 	return (1);

@@ -3,7 +3,7 @@
 
 int	main(void)
 {
-	printf("%i\n", printf("%.40s", "la loi c'est moi\n"));
-	printf("%d\n", printf("%12s\n", NULL));
+	printf("%p\n", NULL);
+	printf("%.p\n", NULL);
 	return (1);
 }

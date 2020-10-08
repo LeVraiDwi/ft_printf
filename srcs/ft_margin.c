@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 09:59:49 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/08 11:47:49 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/08 12:00:17 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_format_margin(t_list *alst)
 	unsigned int	l;
 
 	l = ft_strlen((char *)alst->content);
-	if (alst->flag & FLAG_P && alst->flag & FLAG_Z)
+	if (alst->flag & FLAG_P && alst->flag & FLAG_Z && !(alst->flag & FLAG_PR))
 		l += 2;
 	if (alst->margin > l)
 	{

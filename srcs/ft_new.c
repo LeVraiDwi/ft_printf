@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:12:29 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/08 11:55:08 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/08 12:19:23 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	ft_format_precision(t_list *alst)
 		return (ft_pr_string(alst, pr));
 	else if (alst->flag & FLAG_P || (alst->flag & FLAG_D))
 	{
-		if (ft_atoi((char *)alst->content) == 0)
+		if (ft_atoi((char *)alst->content) == 0 && !(alst->flag & FLAG_X))
 		{
 			alst->content = ft_free(alst->content);
 			if (!(alst->content = ft_strdup("")))
