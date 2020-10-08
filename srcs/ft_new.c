@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:12:29 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/08 12:19:23 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/08 15:43:23 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,20 @@
 int	ft_precision(va_list lst_arg, t_list *alst, int i)
 {
 	char	*str;
+	int		j;
 
 	str = alst->content;
-	if (!(alst->flag & FLAG_PR))
-		alst->flag += FLAG_PR;
 	i++;
 	if (str[i] == '*')
 	{
-		alst->precision = va_arg(lst_arg, int);
+		j = va_arg(lst_arg, int);
+		if (j < 0)
+		{
+			i++;
+			return (i);
+		}
+		else
+			alst->precision = j;
 		i++;
 	}
 	else
@@ -31,17 +37,28 @@ int	ft_precision(va_list lst_arg, t_list *alst, int i)
 		while (str[i] && ft_isdigit(str[i]))
 			i++;
 	}
+	if (!(alst->flag & FLAG_PR))
+		alst->flag += FLAG_PR;
 	return (i);
 }
 
 int	ft_margin(va_list lst_arg, t_list *alst, int i)
 {
 	char	*str;
+	int		j;
 
 	str = alst->content;
 	if (str[i] == '*')
 	{
-		alst->margin = va_arg(lst_arg, int);
+		j = va_arg(lst_arg, int);
+		if (j < 0)
+		{
+			if (!(alst->flag & FLAG_M))
+				alst->flag += FLAG_M;
+			alst->margin = j * -1;
+		}
+		else
+			alst->margin = j;
 		i++;
 	}
 	else

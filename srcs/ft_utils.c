@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 14:10:50 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/08 14:29:36 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/08 14:35:48 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ int	ft_addfront(t_list *alst, int n, char c)
 
 	i = 0;
 	l = ft_strlen((char *)alst->content);
-	if (alst->flag & FLAG_P)
-		l += 2;
 	if (n <= l)
 		return (1);
 	if (!(str = malloc(sizeof(char) * n + 1)))
