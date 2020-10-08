@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:12:29 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/08 15:52:30 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/08 16:07:58 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ int	ft_precision(va_list lst_arg, t_list *alst, int i)
 	if (str[i] == '*')
 	{
 		j = va_arg(lst_arg, int);
+		i++;
 		if (j >= 0)
 			alst->precision = j;
-		i++;
+		else if (j < 0)
+			return (i);
 	}
 	else
 	{
