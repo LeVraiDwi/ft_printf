@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 14:31:56 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/13 16:05:07 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/13 16:11:02 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main()
 	str2 = "asdgasdg";
 	str3 = "asdgasdg";
 	str4 = "asdgasdg";
-	ft_printf("%*.*s\n", 5, -7, "LYDI");
-	printf("%*.*s\n", 5, -7, "LYDI");
+	ft_printf("%-5c\n", 0);
+	printf("%-5c\n", 0);
 	return (1);
 }

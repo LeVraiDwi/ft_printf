@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 08:20:55 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/08 12:17:18 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/13 16:18:03 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int		ft_add_hexa(va_list lst_arg, t_list *alst, int upper);
 int		ft_add_per(t_list *alst);
 int		ft_add_pointer(va_list lst_arg, t_list *alst);
 int		ft_addback(t_list *alst, int margin, int l, char c);
-int		ft_addfront(t_list *alst, int n, char c);
+int		ft_addfront(t_list *alst, int n, int l, char c);
 int		ft_zero_space(t_list *alst);
 int		ft_pr_zero(t_list *alst);
 int		ft_pr_num(t_list *alst, int pr, int l);
