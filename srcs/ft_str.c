@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 09:03:57 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/08 15:51:10 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/13 16:04:39 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	ft_add_char(va_list lst_arg, t_list *alst)
 	if (!(str = (char *)malloc(sizeof(char) * 2)))
 		return (0);
 	*str = va_arg(lst_arg, int);
+	if (*str == 0)
+		alst->precision = -1;
 	str[1] = 0;
 	alst->content = ft_free(alst->content);
 	alst->content = str;
