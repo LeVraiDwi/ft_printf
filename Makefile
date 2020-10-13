@@ -16,8 +16,8 @@ SRC_NAME =	ft_display.c ft_is_specifier.c ft_lst.c \
 			ft_flag.c ft_lst.c ft_del.c \
 			ft_utils.c ft_new.c ft_int.c \
 			ft_str.c ft_hexa.c ft_int.c \
-			ft_per.c ft_utils_bis.c ft_printf.c \
-			ft_margin.c \
+			ft_per.c ft_printf.c ft_precision.c \
+			ft_margin.c\
 
 OBJS = ${SRCS:.c=.o}
 
