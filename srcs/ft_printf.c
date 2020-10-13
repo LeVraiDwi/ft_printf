@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:26:30 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/08 15:50:22 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/13 17:26:57 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	ft_printf(const char *format, ...)
 	t_list	*alst;
 
 	va_start(lst_args, format);
-	if (!(alst = ft_creat_lst(format, lst_args)))
-		return (0);
+	if (!(ft_creat_lst(format, lst_args, &alst)))
+		return (-1);
 	va_end(lst_args);
 	i = ft_display(alst);
 	ft_lstclear(&alst, &ft_del);

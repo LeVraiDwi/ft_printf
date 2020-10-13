@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/07 08:20:55 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/13 16:18:03 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/13 17:29:26 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
 # define FLAG_X 128
 
 int		ft_format(t_list *alst);
+int		ft_error(char **a);
+int		ft_errorclean(t_list **alst, va_list lst_arg);
 int		ft_margin(va_list lst_arg, t_list *alst, int i);
 int		ft_precision(va_list lst_arg, t_list *alst, int i);
 int		ft_printf(const char *format, ...);
@@ -60,7 +62,7 @@ int		ft_format_precision(t_list *alst);
 int		ft_display(t_list *alst);
 int		ft_null(t_list *alst);
 int		ft_format_margin(t_list *alst);
+int		ft_creat_lst(const char *format, va_list lst_arg, t_list **alst);
 char	ft_is_specifier(char c);
 void	ft_del(void *content);
-t_list	*ft_creat_lst(const char *format, va_list lst_arg);
 #endif

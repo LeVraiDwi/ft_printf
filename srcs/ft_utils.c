@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 14:10:50 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/13 16:27:18 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/13 17:30:28 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,18 @@ int	ft_insertstr(t_list *alst, int start, char *add)
 	tmp = ft_free(tmp);
 	alst->content = new;
 	return (l - 1);
+}
+
+int	ft_error(char **a)
+{
+	if (*a)
+		*a = ft_free(*a);
+	return (0);
+}
+
+int	ft_errorclean(t_list **alst, va_list lst_arg)
+{
+	ft_lstclear(alst, &ft_del);
+	va_end(lst_arg);
+	return (0);
 }
