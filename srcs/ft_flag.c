@@ -6,7 +6,7 @@
 /*   By: tcosse <tcosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 15:59:40 by tcosse            #+#    #+#             */
-/*   Updated: 2020/10/13 16:30:34 by tcosse           ###   ########.fr       */
+/*   Updated: 2020/10/21 12:26:08 by tcosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	ft_endofflag(va_list lst_arg, t_list *alst, char c)
 	}
 }
 
-int	ft_flag(va_list lst_arg, t_list *alst)
+int	ft_flag(char *format, va_list lst_arg)
 {
 	int		i;
 	char	*str;
