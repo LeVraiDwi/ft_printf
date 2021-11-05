@@ -216,7 +216,7 @@ char	*format_hex(int with, int precision, unsigned int val)
 	if (!(str = format_decimal(l, precision)))
 		return (0);
 	if (precision == 0 && val == 0)
-		str[l - 1] = (with == l) ? ' ' : '0';
+		str[l - 1] = (with == l) ? ' ' : 0;
 	else if (val == 0)
 		str[l - 1] = '0';
 	i = l - 1;
