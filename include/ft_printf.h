@@ -59,7 +59,7 @@ int		ft_pr_num(t_list *alst, int pr, int l);
 int		ft_pr_string(t_list *alst, int pr);
 int		ft_pr_pointer(t_list *alst, int pr);
 int		ft_format_precision(t_list *alst);
-int		ft_display(t_list *alst);
+int		ft_display(t_list *alst, int fd);
 int		ft_null(t_list *alst);
 int		ft_format_margin(t_list *alst);
 int		ft_creat_lst(const char *format, va_list lst_arg, t_list **alst);

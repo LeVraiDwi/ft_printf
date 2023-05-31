@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_display(t_list *alst)
+int	ft_display(t_list *alst, int fd)
 {
 	int				i;
 	unsigned int	l;
@@ -27,7 +27,7 @@ int	ft_display(t_list *alst)
 		else
 			l = ft_strlen((char *)alst->content);
 		i += l;
-		write(1, alst->content, l);
+		write(fd, alst->content, l);
 		alst = alst->next;
 	}
 	return (i);

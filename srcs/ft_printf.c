@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_dprintf(int fd, const char *format, ...)
 {
 	int		i;
 	va_list	lst_args;
@@ -22,7 +22,7 @@ int	ft_printf(const char *format, ...)
 	if (!(ft_creat_lst(format, lst_args, &alst)))
 		return (-1);
 	va_end(lst_args);
-	i = ft_display(alst);
+	i = ft_display(alst, fd);
 	ft_lstclear(&alst, &ft_del);
 	return (i);
 }
